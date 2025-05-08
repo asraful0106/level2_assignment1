@@ -23,3 +23,30 @@ function concatenateArrays<T>(...arrays: T[][]): T[]{
 
 
 
+class Vehicle{
+    private _make: string;
+    private _year: number;
+
+    constructor(make:string, year:number){
+        this._make = make;
+        this._year = year;
+    }
+
+    getInfo(){
+        console.log(`Make: ${this._make} Year: ${this._year}`);
+    }
+}
+
+class Car extends Vehicle{
+    private _model: string;
+    constructor(make:string, year:number, model:string){
+        super(make, year);
+        this._model = model;
+    }
+    getModel(){
+        console.log(`Model: ${this._model}`);
+    }
+}
+
+
+
