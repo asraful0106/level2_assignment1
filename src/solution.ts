@@ -13,3 +13,13 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
 
 
 
+function concatenateArrays<T>(...arrays: T[][]): T[]{
+    let newArr: T[] = [];
+    arrays.map(arr => {
+        newArr = [...newArr, ...arr];
+    });
+    return newArr;
+}
+
+
+
