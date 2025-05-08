@@ -13,7 +13,7 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
 
 
 
-function concatenateArrays<T>(...arrays: T[][]): T[]{
+function concatenateArrays<T>(...arrays: T[][]): T[] {
     let newArr: T[] = [];
     arrays.map((arr: T[]) => {
         newArr = [...newArr, ...arr];
@@ -23,38 +23,38 @@ function concatenateArrays<T>(...arrays: T[][]): T[]{
 
 
 
-class Vehicle{
+class Vehicle {
     private _make: string;
     private _year: number;
 
-    constructor(make:string, year:number){
+    constructor(make: string, year: number) {
         this._make = make;
         this._year = year;
     }
 
-    getInfo(){
+    getInfo() {
         console.log(`Make: ${this._make} Year: ${this._year}`);
     }
 }
 
-class Car extends Vehicle{
+class Car extends Vehicle {
     private _model: string;
-    constructor(make:string, year:number, model:string){
+    constructor(make: string, year: number, model: string) {
         super(make, year);
         this._model = model;
     }
-    getModel(){
+    getModel() {
         console.log(`Model: ${this._model}`);
     }
 }
 
 
 
-function processValue(value: string | number): number{
-    if(typeof value == 'string'){
+function processValue(value: string | number): number {
+    if (typeof value == 'string') {
         return value.length;
-    }else{
-        return value*2;
+    } else {
+        return value * 2;
     }
 }
 
@@ -65,14 +65,34 @@ interface Product {
     price: number;
 }
 
-function getMostExpensiveProduct(products: Product[]): Product | null{
-    if(products.length == 0){
+function getMostExpensiveProduct(products: Product[]): Product | null {
+    if (products.length == 0) {
         return null;
     }
     products?.sort((a: Product, b: Product) => {
         return b.price - a.price;
     });
-    return products[0]||null;
+    return products[0] || null;
+}
+
+
+
+enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+}
+
+function getDayType(day: Day): string {
+    if (day == Day.Sunday || day == Day.Saturday) {
+        return "Weekend";
+    } else {
+        return "Weekday";
+    }
 }
 
 
