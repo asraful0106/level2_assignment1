@@ -15,7 +15,7 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
 
 function concatenateArrays<T>(...arrays: T[][]): T[]{
     let newArr: T[] = [];
-    arrays.map(arr => {
+    arrays.map((arr: T[]) => {
         newArr = [...newArr, ...arr];
     });
     return newArr;
@@ -56,6 +56,23 @@ function processValue(value: string | number): number{
     }else{
         return value*2;
     }
+}
+
+
+
+interface Product {
+    name: string;
+    price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null{
+    if(products.length == 0){
+        return null;
+    }
+    products?.sort((a: Product, b: Product) => {
+        return b.price - a.price;
+    });
+    return products[0]||null;
 }
 
 
